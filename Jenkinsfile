@@ -1,1 +1,17 @@
-test
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/lakhta2/simple-java-maven-app'
+            }
+        }
+        stage('Build') {
+            steps {
+                // Замените на команду сборки вашего проекта, например, sh 'mvn clean package'
+                echo 'Сборка проекта...'
+                sh 'ls -la'
+            }
+        }
+    }
+}
