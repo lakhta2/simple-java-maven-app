@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/lakhta2/simple-java-maven-app'
+                git branch: 'master', url: 'https://github.com/lakhta2/simple-java-maven-app'
             }
         }
         stage('Build') {
