@@ -9,6 +9,7 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/lakhta2/simple-java-maven-app'
             }
         }
+        parallel {
         stage('Build') {
             steps {
                 // Замените на команду сборки вашего проекта, например, sh 'mvn clean package'
@@ -16,10 +17,13 @@ pipeline {
                 sh 'ls -la'
                 sh 'mvn clean package'
             }
-         stage('Build2') {
-                echo 'Sborka 2 initialized...'
-                echo 'Sborka 2 initialized...'
-                echo 'Sborka 2 initialized...'
+            }
+        stage('Build2') {
+            steps {
+                echo 'Sborka 2 started...'
+                echo 'Sborka 2 working...'
+                echo 'Sborka 2 ended...'
+            }
             }
         }
     }
