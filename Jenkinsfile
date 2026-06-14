@@ -16,6 +16,11 @@ pipeline {
                 sh 'ls -la'
                 sh 'mvn clean package'
             }
+         stage('Build2') {
+                echo 'Sborka 2 initialized...'
+                echo 'Sborka 2 initialized...'
+                echo 'Sborka 2 initialized...'
+            }
         }
     }
 }
