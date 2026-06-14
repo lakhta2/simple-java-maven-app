@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven-3.9'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -11,6 +14,7 @@ pipeline {
                 // Замените на команду сборки вашего проекта, например, sh 'mvn clean package'
                 echo 'Сборка проекта...'
                 sh 'ls -la'
+                sh 'mvn clean package'
             }
         }
     }
