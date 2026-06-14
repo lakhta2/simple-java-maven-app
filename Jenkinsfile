@@ -4,12 +4,14 @@ pipeline {
         maven 'maven-3.9'
     }
     stages {
-        stage('Checkout + Test&Build') {
+        stage('Checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/lakhta2/simple-java-maven-app'
             }
+        }
 
-        parallel {
+        stage('Build + Build2'){
+        parallel{
         stage('Build') {
             steps {
                 // Замените на команду сборки вашего проекта, например, sh 'mvn clean package'
@@ -24,8 +26,8 @@ pipeline {
                 echo 'Sborka 2 working...'
                 echo 'Sborka 2 ended...'
             }
-            }
-            }
+        }
+        }
         }
     }
 }
