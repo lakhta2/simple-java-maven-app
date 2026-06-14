@@ -4,11 +4,11 @@ pipeline {
         maven 'maven-3.9'
     }
     stages {
-        stage('Checkout') {
+        stage('Checkout + Test&Build') {
             steps {
                 git branch: 'master', url: 'https://github.com/lakhta2/simple-java-maven-app'
             }
-        }
+
         parallel {
         stage('Build') {
             steps {
@@ -23,6 +23,7 @@ pipeline {
                 echo 'Sborka 2 started...'
                 echo 'Sborka 2 working...'
                 echo 'Sborka 2 ended...'
+            }
             }
             }
         }
